@@ -1,0 +1,21 @@
+.products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 60px;
+    gap:20px;
+}
+
+.cards{
+    width: 400px;
+    height: 550px;
+    border:2px solid whitesmoke;
+    border-radius: 40px;
+    background-color: whitesmoke;
+    padding: 20px;
+    box-shadow: 5px 10px 5px whitesmoke;
+    transition: transform 0.2s;
+}
+.cards:hover{
+    transform: scale(1.5);
+}
