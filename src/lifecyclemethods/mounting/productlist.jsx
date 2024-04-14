@@ -3,10 +3,16 @@ import "./index.css";
 import axios from "axios";
 
 class ProductList extends Component{
-    state={
-        products:[]
-    }
+   constructor(){
+    console.log("constructor")
+    super()
+        this.state={
+            products:[],
+            favoriteColor:"green"
+        }
+   }
     componentDidMount(){
+        console.log("componentDidMount")
         this.fetchData()
 
     }
@@ -32,19 +38,24 @@ class ProductList extends Component{
             }
          )
     }
+    static getDerivedStateFromProps(props, state) {
+        return {favoriteColor: props.favcol};
+      }
+     
     render(){
+        console.log("render")
         return(
             <>
-            <h4>ProductList</h4>
+            <h3 style={{color:this.state.favoriteColor}}>ProductList</h3>
             {
               this.state.products.length>0
               ?
               <div className="products">
               {
                 this.state.products.map((eachObject,index)=>{
-                    const {title,description,thumbnail,category,price}=eachObject
+                    const {title,description,thumbnail,category,price,id}=eachObject
                     return(
-                        <div className="cards">
+                        <div className="cards" key={id}>
                         <h4>{title}</h4>
                         <img src={thumbnail} alt={title} width={70}></img>
                         <h4>{description}</h4>
