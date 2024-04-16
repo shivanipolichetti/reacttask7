@@ -1,12 +1,9 @@
-import './App.css';
-import Unmounting from './lifecyclemethods/umounting/unmounting';
-import Updating from './lifecyclemethods/updating/updating';
+import ProductList from "./lifecyclemethods/mounting/productlist";
 
 function App() {
   return (
     <div>
-      <Updating/>
-      <Unmounting/>
+     <ProductList/>
     </div>
   );
 }
